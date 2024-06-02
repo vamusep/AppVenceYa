@@ -1,13 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>registro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
-    </ion-toolbar>
+  <ion-header>
+    <div class="header-content">
+      <h2 class="register">Registro</h2>
+      <h2 class="venceya"><span class="vence">Vence</span><span class="ya">Ya</span></h2>
+    </div>
   </ion-header>
+
+  <div id="container">
+    <div class="welcome-section">
+
+      <h3><strong>¡Registrate y únete a VenceYa!</strong></h3>
+    </div>
+
+    <div class="register-section">
+      <ion-list>
+        <ion-item>
+          <ion-input [(ngModel)]="username" label="Nombre" labelPlacement="stacked" placeholder="Tu nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="lastname" label="Apellido" labelPlacement="stacked" placeholder="Tu apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="phone" label="Celular" labelPlacement="stacked" type="number" placeholder="987654321"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="password" label="Contraseña" labelPlacement="stacked" type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="confirmPassword" label="Confirmar Contraseña" labelPlacement="stacked" type="password" placeholder="Confirmar Contraseña"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="email" label="Email" labelPlacement="stacked" type="email" placeholder="user@venceya.com"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="registro()" class="custom-button" shape="round" color="black">Registrame!!</ion-button>
+    </div>
+  </div>
 </ion-content>
