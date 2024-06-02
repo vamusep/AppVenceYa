@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <div class="header-content">
+      <h2 class="login">Login</h2>
+      <h2 class="venceya"><span class="vence">Vence</span><span class="ya">Ya</span></h2>
+    </div>
+  </ion-header>
+
+  <div id="container">
+
+      <div class="welcome-section">
+      <h1><strong>Bienvenido</strong></h1>
+      <h2>Nos alegra verte por aquí! 😊</h2>
+      </div>
+
+
+    <div class="login-section">
+      <ion-item>
+        <br>
+        <ion-input [(ngModel)]="username" label="Usuario" label-placement="floating" fill="outline" placeholder=" "></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input [(ngModel)]="password" label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder=" "></ion-input>
+      </ion-item>
+      <ion-button (click)="login()" class="custom-button" shape="round">Ingresar</ion-button>
+    </div>
+
+    <ion-text class="custom-link">
+      <p>¿Aún no te registras? <a routerLink="/registro">Registrate aquí!</a></p>
+    </ion-text>
+  </div>
+</ion-content>

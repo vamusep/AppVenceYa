@@ -1,0 +1,47 @@
+.welcomePage-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background-color: #fff;
+    padding-top: 50px;
+  }
+  
+  .logo {
+    max-width: 80%;
+    height: auto;
+    margin-top: 180px;
+    margin-bottom: 100px;
+  }
+  
+  .slogan {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  ion-button {
+    margin: 20px auto; 
+    background-color: #f69dec;
+    --background: #f69dec;
+    --color: #fff;
+    width: 100%;          
+    max-width: 200px; 
+  }
+  
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .footer ion-title {
+    color: #f69dec;
+    font-size: 15px;
+  }
+  
