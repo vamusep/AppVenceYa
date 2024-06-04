@@ -13,7 +13,6 @@ export class LoginPage {
 
   constructor(
     private router: Router,
-    //private authService: AuthService,
     private alertController: AlertController
   ) {
     this.username = '';
