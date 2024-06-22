@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service'; //nuevo
+
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
+
 export class RegistroPage {
   username: string;
   lastname: string;
@@ -17,8 +20,10 @@ export class RegistroPage {
 
   constructor(
     private router: Router,
-    private alertController: AlertController
-  ) {
+    private alertController: AlertController,
+    private authService: AuthService //nuevo
+  ) 
+    {
     this.username = '';
     this.lastname = '';
     this.phone = '';
@@ -27,6 +32,7 @@ export class RegistroPage {
     this.email = '';
   }
 
+  //se utiliza authService para la comprobacion del password al registrar un usuario
   async registro() {
     if (this.password !== this.confirmPassword) {
       const alert = await this.alertController.create({
@@ -37,6 +43,17 @@ export class RegistroPage {
       await alert.present();
       return;
     }
+
+    if (!this.authService.validatePassword(this.password)) {
+      const alert = await this.alertController.create({
+        header: 'Error😥',
+        message: 'Ojo! La contraseña debe tener al menos 8 caracteres, una mayúscula y un número',
+        buttons: ['Intentalo otra vez']
+      });
+      await alert.present();
+      return;
+    }
+
 
     const alert = await this.alertController.create({
       header: 'Registro Exitoso',

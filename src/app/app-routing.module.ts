@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
+  {
+    path: 'api-rest',
+    loadChildren: () => import('./api-rest/api-rest.module').then( m => m.ApiRestPageModule)
+  },
+
 ];
 
 @NgModule({
