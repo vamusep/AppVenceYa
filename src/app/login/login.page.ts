@@ -10,6 +10,8 @@ import { AlertController } from '@ionic/angular';
 export class LoginPage {
   username: string;
   password: string;
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
 
   constructor(
     private router: Router,
@@ -17,6 +19,16 @@ export class LoginPage {
   ) {
     this.username = '';
     this.password = '';
+  }
+
+  togglePasswordVisibility() {
+    if (this.passwordType === 'password') {
+      this.passwordType = 'text';
+      this.passwordIcon = 'eye';
+    } else {
+      this.passwordType = 'password';
+      this.passwordIcon = 'eye-off';
+    }
   }
 
   async login() {

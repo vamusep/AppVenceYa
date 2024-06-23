@@ -95,4 +95,32 @@ ion-header {
     text-align: center;
   }
   
-  
+  /* para modificar/alinear el texto*/
+ion-item {
+  width: 100%;
+  --min-height: 60px;
+}
+
+ion-input::part(native) {
+  padding-top: 10px;
+}
+
+ion-input[label-placement="stacked"]::part(native) {
+  padding-top: 10px;
+}
+
+/* estilos adicionales para el icono del ojo */
+ion-item.password-item {
+  position: relative;
+}
+
+ion-icon.eye-icon {
+  position: absolute;
+  right: 16px; 
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 24px; 
+  z-index: 10; 
+  pointer-events: auto;
+}

@@ -17,6 +17,10 @@ export class RegistroPage {
   password: string;
   confirmPassword: string;
   email: string;
+  passwordType: string = 'password';
+  confirmPasswordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+  confirmPasswordIcon: string = 'eye-off';
 
   constructor(
     private router: Router,
@@ -30,6 +34,26 @@ export class RegistroPage {
     this.password = '';
     this.confirmPassword = this.password;
     this.email = '';
+  }
+
+  togglePasswordVisibility() {
+    if (this.passwordType === 'password') {
+      this.passwordType = 'text';
+      this.passwordIcon = 'eye';
+    } else {
+      this.passwordType = 'password';
+      this.passwordIcon = 'eye-off';
+    }
+  }
+
+  toggleConfirmPasswordVisibility() {
+    if (this.confirmPasswordType === 'password') {
+      this.confirmPasswordType = 'text';
+      this.confirmPasswordIcon = 'eye';
+    } else {
+      this.confirmPasswordType = 'password';
+      this.confirmPasswordIcon = 'eye-off';
+    }
   }
 
   //se utiliza authService para la comprobacion del password al registrar un usuario

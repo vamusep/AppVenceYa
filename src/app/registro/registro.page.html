@@ -8,7 +8,6 @@
 
   <div id="container">
     <div class="welcome-section">
-
       <h3><strong>¡Registrate y únete a VenceYa!</strong></h3>
     </div>
 
@@ -23,11 +22,13 @@
         <ion-item>
           <ion-input [(ngModel)]="phone" label="Celular" labelPlacement="stacked" type="number" placeholder="987654321"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input [(ngModel)]="password" label="Contraseña" labelPlacement="stacked" type="password" placeholder="Contraseña"></ion-input>
+        <ion-item class="password-item">
+          <ion-input [(ngModel)]="password" label="Contraseña" labelPlacement="stacked" [type]="passwordType" placeholder="Contraseña"></ion-input>
+          <ion-icon class="eye-icon" slot="end" name="{{passwordIcon}}" (click)="togglePasswordVisibility()"></ion-icon>
         </ion-item>
-        <ion-item>
-          <ion-input [(ngModel)]="confirmPassword" label="Confirmar Contraseña" labelPlacement="stacked" type="password" placeholder="Confirmar Contraseña"></ion-input>
+        <ion-item class="password-item">
+          <ion-input [(ngModel)]="confirmPassword" label="Confirmar Contraseña" labelPlacement="stacked" [type]="confirmPasswordType" placeholder="Confirmar Contraseña"></ion-input>
+          <ion-icon class="eye-icon" slot="end" name="{{confirmPasswordIcon}}" (click)="toggleConfirmPasswordVisibility()"></ion-icon>
         </ion-item>
         <ion-item>
           <ion-input [(ngModel)]="email" label="Email" labelPlacement="stacked" type="email" placeholder="user@venceya.com"></ion-input>

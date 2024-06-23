@@ -23,11 +23,7 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
-    path: 'api-rest',
-    loadChildren: () => import('./api-rest/api-rest.module').then( m => m.ApiRestPageModule)
-  },
+  }
 
 ];
 
