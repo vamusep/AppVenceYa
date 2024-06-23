@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre de Usuario</ion-label>
+      <ion-input [(ngModel)]="usuario.username" placeholder="Nombre de Usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [(ngModel)]="usuario.email" type="email" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input [(ngModel)]="usuario.password" type="password" placeholder="Contraseña"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="guardarPerfil()">Guardar</ion-button>
+</ion-content>

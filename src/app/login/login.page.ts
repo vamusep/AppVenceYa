@@ -32,7 +32,41 @@ export class LoginPage {
   }
 
   async login() {
-    localStorage.setItem('username', this.username);
-    this.router.navigate(['/home']);
+    if (!this.username || !this.password) {
+      const alert = await this.alertController.create({
+        header: 'Ups! ⚠️',
+        message: 'Por favor ingresa tu usuario y contraseña para poder ingresar',
+        buttons: ['Aceptar']
+      });
+      await alert.present();
+      return;
+    }
+
+    const usuarios = localStorage.getItem('usuarios');
+    const usuariosArray = usuarios ? JSON.parse(usuarios) : [];
+
+    if (usuariosArray.length === 0) {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'No hay usuarios registrados',
+        buttons: ['Aceptar']
+      });
+      await alert.present();
+      return;
+    }
+
+    const usuario = usuariosArray.find((user: any) => user.username === this.username && user.password === this.password);
+
+    if (usuario) {
+      localStorage.setItem('username', this.username);
+      this.router.navigate(['/home']);
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Horror!',
+        message: 'Usuario o contraseña incorrectos🧐',
+        buttons: ['Aceptar']
+      });
+      await alert.present();
+    }
   }
 }
