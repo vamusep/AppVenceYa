@@ -3,13 +3,11 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service'; //nuevo
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
-
 export class RegistroPage {
   username: string;
   lastname: string;
@@ -26,13 +24,12 @@ export class RegistroPage {
     private router: Router,
     private alertController: AlertController,
     private authService: AuthService //nuevo
-  ) 
-    {
+  ) {
     this.username = '';
     this.lastname = '';
     this.phone = '';
     this.password = '';
-    this.confirmPassword = this.password;
+    this.confirmPassword = '';
     this.email = '';
   }
 
@@ -78,6 +75,18 @@ export class RegistroPage {
       return;
     }
 
+    const usuario = {
+      username: this.username,
+      lastname: this.lastname,
+      phone: this.phone,
+      email: this.email,
+      password: this.password
+    };
+
+    let usuarios = localStorage.getItem('usuarios');
+    let usuariosArray = usuarios ? JSON.parse(usuarios) : [];
+    usuariosArray.push(usuario); //agrega al nuevo usuario
+    localStorage.setItem('usuarios', JSON.stringify(usuariosArray));
 
     const alert = await this.alertController.create({
       header: 'Registro Exitoso',
@@ -85,6 +94,7 @@ export class RegistroPage {
       buttons: ['Aceptar']
     });
     await alert.present();
-    this.router.navigate(['/login']); 
+
+    this.router.navigate(['/login']);
   }
 }

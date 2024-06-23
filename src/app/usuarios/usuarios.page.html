@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios Registrados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios; let i = index">
+      <ion-label>
+        <h2>{{ usuario.username }}</h2>
+        <p>Email: {{ usuario.email }}</p>
+        <p>Contraseña: {{ usuario.password }}</p>
+      </ion-label>
+      <ion-button (click)="editUsuario(i)">Editar</ion-button>
+      <ion-button color="danger" (click)="deleteUsuario(i)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
