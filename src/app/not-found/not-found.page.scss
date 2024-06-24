@@ -1,0 +1,32 @@
+.not-found-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .not-found-container h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .red-button {
+    --background: red;
+    --background-hover: darkred;
+    --background-activated: darkred;
+    --border-radius: 20px;
+    --color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
+  
