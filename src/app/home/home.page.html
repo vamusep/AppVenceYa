@@ -7,7 +7,6 @@
   <ion-content class="ion-padding">
     <ion-list>
       <ion-item routerLink="/perfil">Mi Perfil</ion-item>
-
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -25,42 +24,26 @@
   <ion-content [fullscreen]="true" class="home-content">
     <div class="container">
       <h3>Hola😎, {{ nombreUsuario }}!</h3>
-      <h5>👉Aquí podras agregar los alimentos que tienes en tu despensa.
+      <h5>👉Aquí podrás ver y agregar productos en tu despensa.
         <br>
-        👉Puedes crear nuevos y eliminarlos cuando lo desees.
+        👉Puedes consultar los productos y eliminarlos cuando lo desees.
         <br>
-        👉Recordatorios de caducidad [Proximamente] 
+        👉Recordatorios de caducidad [Próximamente]
       </h5>
-      
-      <div class="producto" *ngFor="let alimento of alimentos; let i = index">
-        <ion-item>
-          <ion-label position="stacked">Marca</ion-label>
-          <ion-input [(ngModel)]="alimento.marca" placeholder="Marca"></ion-input>
-        </ion-item>
 
-        <ion-item>
-          <ion-label position="stacked">Producto</ion-label>
-          <ion-input [(ngModel)]="alimento.producto" placeholder="Producto"></ion-input>
-        </ion-item>
+      <ion-button (click)="addProduct()">Agregar Producto</ion-button>
 
-        <ion-item>
-          <ion-label position="stacked">Fecha de Caducidad</ion-label>
-          <ion-datetime class="dateTime" displayFormat="DD MMM YYYY" [(ngModel)]="alimento.fechaCaducidad" placeholder="Selecciona fecha"></ion-datetime>
-        </ion-item>
-      </div>
-
-      <ion-button class="buttonGuardar" color="success" (click)="guardarAlimentos()">Guardar</ion-button>
-      <ion-button class="buttonEliminar" color="danger">Eliminar</ion-button>
-
-      <div *ngIf="alimentosGuardados.length > 0" class="alimentosGuardados">
-        <h2>Alimentos Guardados</h2>
+      <div *ngIf="products.length > 0" class="productosGuardados">
+        <h2>Productos Guardados</h2>
         <ion-list>
-          <ion-item *ngFor="let alimento of alimentosGuardados">
+          <ion-item *ngFor="let product of products">
             <ion-label>
-              <h2>{{ alimento.marca }}</h2>
-              <p>{{ alimento.producto }}</p>
-              <p>Fecha de Caducidad: {{ alimento.fechaCaducidad | date }}</p>
+              <h2>{{ product.marca }}</h2>
+              <p>Producto: {{ product.producto }}</p>
+              <p>Código de Barras: {{ product.codigo_barras }}</p>
+              <p>Categoría: {{ product.categoria }}</p>
             </ion-label>
+            <ion-button color="danger" (click)="deleteProduct(product.id)">Eliminar</ion-button>
           </ion-item>
         </ion-list>
       </div>
