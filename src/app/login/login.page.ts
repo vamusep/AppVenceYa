@@ -22,7 +22,7 @@ export class LoginPage {
     this.username = '';
     this.password = '';
   }
-
+ //se agrega ojo para hacer que la contraseña se vuelva visible para el usuario
   togglePasswordVisibility() {
     if (this.passwordType === 'password') {
       this.passwordType = 'text';
@@ -33,6 +33,7 @@ export class LoginPage {
     }
   }
 
+  //revisar si el user esta logeado para poder ingresar al home
   async login() {
     if (!this.username || !this.password) {
       const alert = await this.alertController.create({
@@ -44,6 +45,8 @@ export class LoginPage {
       return;
     }
 
+
+    //usuarios guardados con localStorage
     const usuarios = localStorage.getItem('usuarios');
     const usuariosArray = usuarios ? JSON.parse(usuarios) : [];
 

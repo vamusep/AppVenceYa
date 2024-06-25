@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './services/auth-guard.service'; //nuevo para importar el GS
+import { AuthGuardService } from './services/auth-guard.service'; //nuevo para importar el GS (protector de ruta)
 
 const routes: Routes = [
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
-    path: 'not-found',
+    path: 'not-found', //se crea page para generar msj de error 404
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
   {

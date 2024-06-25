@@ -65,6 +65,7 @@ export class RegistroPage {
       return;
     }
 
+    //validar que las contraseñas cumplan con el requerimiento
     if (!this.authService.validatePassword(this.password)) {
       const alert = await this.alertController.create({
         header: 'Error😥',
